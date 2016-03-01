@@ -1,4 +1,4 @@
-# replace the contents of this comment with your name
+# Daniel Cowman
 import random
 
 # -------------------------------------------------------------------
@@ -7,7 +7,8 @@ import random
 #   'topLimit' which is the top limit for the random number generator
 # the function returns the random number generated to its caller
 def generateNumber( topLimit ):
-    
+    return random.randrange(1, topLimit)
+
     # TO DO: ####################################################
     # Write code in this function that calculates and           #
     # returns a random number between 1 and the user's topLimit #
@@ -44,7 +45,15 @@ def askUserToGuess( times, secretNumber ):
 #   the 'userGuess' parameter is the answer entered by the user
 #   the 'userSecretNumber' parameter is the randomly generated number
 def evaluateAnswer( userGuess, userSecretNumber ):
-    
+    if userGuess < userSecretNumber:
+        print "Too low, try a higher number."
+        return False
+    elif userGuess > userSecretNumber:
+        print "Too high, try a lower number."
+        return False
+    else:
+        return True
+
     # TO DO: ####################################################
     # Write code in this function that compares userGuess and   #
     # userSecretNumber. The code should:                        #
@@ -58,7 +67,6 @@ def evaluateAnswer( userGuess, userSecretNumber ):
 
 # end of evaluateAnswer function -------------------------------------
 
-
 # -------------------------------------------------------------------
 # this is the playGame function
 # it has one parameter:
@@ -66,7 +74,17 @@ def evaluateAnswer( userGuess, userSecretNumber ):
 #       True, we'll show the right answer on the screen
 #       False, we won't show the right answer on the screen
 def playGame( showAnswer ):
-    
+    # 1
+    print "Greetings! Welcome to Guess the Number!"
+    # 2
+    highestNumber = input("Enter the highest number you would like to guess, \nthe higher the number the more challenging it is! ;)\nEnter Highest Number:")
+    # 3
+    totalGuesses = input("Enter the number of chances you think it will take you to guess the number!\nEnter Total No. of Guesses:")
+    # 4
+    theNumber = generateNumber(highestNumber)
+    # 5
+    evaluateAnswer(totalGuesses, theNumber)
+
     # TO DO: ####################################################
     # Write code in this function that                          #
     # 1. Greets the user                                        #
