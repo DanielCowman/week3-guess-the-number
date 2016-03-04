@@ -7,7 +7,7 @@ import random
 #   'topLimit' which is the top limit for the random number generator
 # the function returns the random number generated to its caller
 def generateNumber( topLimit ):
-    return random.randrange(1, topLimit)
+    return random.randrange(1, int(topLimit))
 
     # TO DO: ####################################################
     # Write code in this function that calculates and           #
@@ -46,10 +46,10 @@ def askUserToGuess( times, secretNumber ):
 #   the 'userSecretNumber' parameter is the randomly generated number
 def evaluateAnswer( userGuess, userSecretNumber ):
     if userGuess < userSecretNumber:
-        print "Too low, try a higher number."
+        print("Too low, try a higher number.")
         return False
     elif userGuess > userSecretNumber:
-        print "Too high, try a lower number."
+        print("Too high, try a lower number.")
         return False
     else:
         return True
@@ -75,11 +75,11 @@ def evaluateAnswer( userGuess, userSecretNumber ):
 #       False, we won't show the right answer on the screen
 def playGame( showAnswer ):
     # 1
-    print "Greetings! Welcome to Guess the Number!"
+    print("Greetings! Welcome to Guess the Number!")
     # 2
-    highestNumber = input("Enter the highest number you would like to guess, \nthe higher the number the more challenging it is! ;)\nEnter Highest Number:")
+    highestNumber = int(input("Enter the highest number you would like to guess, \nthe higher the number the more challenging it is! ;)\nEnter Highest Number:"))
     # 3
-    totalGuesses = input("Enter the number of chances you think it will take you to guess the number!\nEnter Total No. of Guesses:")
+    totalGuesses = int(input("Enter the number of chances you think it will take you to guess the number!\nEnter Total No. of Guesses:"))
     # 4
     theNumber = generateNumber(highestNumber)
     # 5
